@@ -4,6 +4,10 @@ const fs = require("fs");
 const request = require("request");
 const Prefix = "!";
 const Token = process.env.token;
+const welcomeChannelName = "🚧ㅣ입장퇴장" // 입장 시 환영메시지를 전송 할 채널의 이름을 입력하세요.
+const byeChannelName = "🚧ㅣ입장퇴장" // 퇴장 시 메시지를 전송 할 채널의 이름을 입력하세요.
+const welcomeChannelComment = "어서오세요." // 입장 시 전송할 환영메시지의 내용을 입력하세요.
+const byeChannelComment = "안녕히가세요." // 퇴장 시 전송할 메시지의 내용을 입력하세요.
 
 
 Client.on("ready", function() {
@@ -17,6 +21,21 @@ Client.on("ready", function() {
   }, 10000);
 });
 
+client.on("guildMemberAdd", (member) => {
+  const guild = member.guild
+  const newUser = member.user
+  const welcomeChannel = guild.channels.cache.find((channel) => channel.name == welcomeChannelName)
+
+  welcomeChannel.send(`<@${newUser.id}> ${welcomeChannelComment}\n`) // 올바른 채널명을 기입하지 않았다면, Cannot read property 'send' of undefined; 오류가 발생합니다.
+})
+
+client.on("guildMemberRemove", (member) => {
+  const guild = member.guild
+  const deleteUser = member.user
+  const byeChannel = guild.channels.cache.find((channel) => channel.name == byeChannelName)
+
+  byeChannel.send(`<@${deleteUser.id}> ${byeChannelComment}\n`) // 올바른 채널명을 기입하지 않았다면, Cannot read property 'send' of undefined; 오류가 발생합니다.
+})
 
 
 
