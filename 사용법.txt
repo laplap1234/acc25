@@ -1,0 +1,32 @@
+.additem [아이템 이름] `[아이템]`		예: .additem minecraft_NFA `이메일:비번`
+[아이템 이름] 에 [아이템]을 추가합니다
+
+.createitem [아이템 이름]			예: .createitem minecraft_NFA
+[아이템 이름] 을 추가합니다
+
+.gen [아이템 이름]					예: .gen minecraft_NFA
+[아이템 이름] 을 생성합니다
+
+.ping							예: .ping
+봇의 현재 핑을 확인합니다
+
+.removeitem [아이템 이름]			예: .removeitem minecraft_NFA
+[아이템 이름] 을 삭제합니다
+
+
+.resetguild						예: .resetguild
+서버의 모든 설정을 초기화합니다
+
+
+.setupguild						예: .setupguild
+서버를 설정합니다
+
+
+.stock							예: .stock
+아이템들의 재고를 확인합니다
+
+
+
+2차 및 3차 배보가능합니다
+
+사용법을 모르시다면 디스코드 BADA248#3455
